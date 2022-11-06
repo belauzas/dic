@@ -38,7 +38,7 @@ export default [
     },
     {
         name: 'GNU',
-        desc: 'GNU yra rekursinis akronimas "GNU\'s Not Unix!"',
+        desc: 'GNU yra rekursinis akronimas &quot;GNU\'s Not Unix!&quot;',
         syn: [],
         more: ['https://en.wikipedia.org/wiki/GNU', 'https://www.gnu.org/'],
     },
