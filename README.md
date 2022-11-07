@@ -4,9 +4,9 @@
 ![Eco Status](https://img.shields.io/badge/ECO-Friendly-green.svg)
 [![Discord](https://discord.com/api/guilds/571393319201144843/widget.png)](https://discord.gg/dRwW4rw)
 
-# Learn Guru
+# Programmers dictionary
 
-_website design project_
+_website project_
 
 <br>
 
@@ -14,9 +14,7 @@ _website design project_
 
 This project is for educational porpuses only. Pull request are welcome, but priority for project authors! Thank you for your cooperation!
 
-Site published at: https://belauzas.github.io/learn-guru/
-
-Design: [Learn Guru](https://cdn.discordapp.com/attachments/850245533838868480/1029631637291536494/unknown.png)
+Site published at: https://belauzas.github.io/dic/
 
 ## 🎯 Project features/goals
 
@@ -47,7 +45,7 @@ Would like to run this project locally? Open terminal and follow these steps:
 
 1. Clone the repo
     ```sh
-    git clone https://github.com/belauzas/learn-guru.git
+    git clone https://github.com/belauzas/dic.git
     ```
 2. Install NPM packages
     ```sh
