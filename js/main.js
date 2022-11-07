@@ -29,6 +29,16 @@ const updatingClock = setInterval(() => {
     versionDOM.textContent = updatingText + updateDots;
 }, 200);
 
+/**
+ * 
+ * @param {'string'} msg 
+ * @param {boolean} err 
+ */
+function terminateClock(msg, err = true) {
+    clearInterval(updatingClock);
+    versionDOM.textContent = `Versija ${originDataVersion} ${msg}.`;
+}
+
 // GET CURRENT VERSION
 await fetch(repoURL + packageFile)
     .then(data => data.json())
@@ -37,6 +47,7 @@ await fetch(repoURL + packageFile)
     })
     .catch((e) => {
         console.log(e);
+        terminateClock('negalėjo būti atnaujinta', true);
     })
 
 // UPDATE DATA AND VERSION
@@ -46,15 +57,14 @@ if (localDataVersion !== originDataVersion) {
         .then(data => {
             localStorage.setItem(localVersionKey, originDataVersion);
             localStorage.setItem(localDataKey, JSON.stringify(data));
-            clearInterval(updatingClock);
-            versionDOM.textContent = `Version ${originDataVersion} updated`;
+            terminateClock('atnaujinta sėkmingai');
         })
         .catch((e) => {
             console.log(e);
+            terminateClock('negalėjo būti atnaujinta', true);
         })
 } else {
-    clearInterval(updatingClock);
-    versionDOM.textContent = `Version ${originDataVersion} up to date`;
+    terminateClock('yra naujausia');
 }
 
 // APP INIT

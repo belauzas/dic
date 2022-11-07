@@ -36,6 +36,7 @@ body {
     padding-top: 1em;
     border-top: 1px solid var(--color-2);
     font-family: monospace;
+    line-height: 1.5em;
 }
 
 .container.about {
