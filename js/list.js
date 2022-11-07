@@ -20,13 +20,15 @@ function dictionaryInit(dic) {
     const inputDOM = document.getElementById('search');
     inputDOM.focus();
 
-    inputDOM.addEventListener('keyup', (e) => {
-        e.preventDefault();
+    function updateList(e) {
         const text = inputDOM.value;
         for (const item of dictionary) {
             item.search(text);
         }
-    })
+    }
+
+    inputDOM.addEventListener('keyup', updateList.bind(this));
+    inputDOM.addEventListener('search', updateList.bind(this));
 }
 
 export { dictionaryInit }

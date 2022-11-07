@@ -1,4 +1,3 @@
-import dic from '../data/dic.js';
 import { dictionaryInit } from './list.js';
 
 const repoURL = 'https://raw.githubusercontent.com/belauzas/dic/master/';
@@ -16,6 +15,7 @@ if (localVersion) {
     localDataVersion = localVersion;
 }
 
+// GET CURRENT VERSION
 await fetch(repoURL + packageFile)
     .then(data => data.json())
     .then(data => {
@@ -25,6 +25,7 @@ await fetch(repoURL + packageFile)
         console.log(e);
     })
 
+// UPDATE DATA AND VERSION
 if (localDataVersion !== originDataVersion) {
     await fetch(repoURL + dataFile)
         .then(data => data.json())
@@ -37,6 +38,7 @@ if (localDataVersion !== originDataVersion) {
         })
 }
 
+// APP INIT
 const localDataJSON = localStorage.getItem(localDataKey);
 try {
     const localData = JSON.parse(localDataJSON);
