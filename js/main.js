@@ -15,6 +15,20 @@ if (localVersion) {
     localDataVersion = localVersion;
 }
 
+const versionDOM = document.querySelector('.version-title');
+const updatingText = `Version ${localDataVersion}: updating`;
+let updateTick = 0;
+let updateDots = '';
+const updatingClock = setInterval(() => {
+    if (updateTick++ < 3) {
+        updateDots += '.';
+    } else {
+        updateDots = '';
+        updateTick = 0;
+    }
+    versionDOM.textContent = updatingText + updateDots;
+}, 200);
+
 // GET CURRENT VERSION
 await fetch(repoURL + packageFile)
     .then(data => data.json())
@@ -32,10 +46,15 @@ if (localDataVersion !== originDataVersion) {
         .then(data => {
             localStorage.setItem(localVersionKey, originDataVersion);
             localStorage.setItem(localDataKey, JSON.stringify(data));
+            clearInterval(updatingClock);
+            versionDOM.textContent = `Version ${originDataVersion} updated`;
         })
         .catch((e) => {
             console.log(e);
         })
+} else {
+    clearInterval(updatingClock);
+    versionDOM.textContent = `Version ${originDataVersion} up to date`;
 }
 
 // APP INIT
