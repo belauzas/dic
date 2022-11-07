@@ -64,7 +64,7 @@ class Item {
 
     show() {
         if (this.DOM) {
-            this.DOM.style.display = 'block';
+            this.DOM.style.display = 'flex';
         }
     }
 
@@ -75,6 +75,14 @@ class Item {
     }
 
     expand() {
+        this.DOM.classList.add('expand');
+    }
+
+    collapse() {
+        this.DOM.classList.remove('expand');
+    }
+
+    toggle() {
         this.DOM.classList.toggle('expand');
     }
 
@@ -102,9 +110,13 @@ class Item {
         this.DOM = this.parentDOM.querySelector('#' + id);
         const titleDOM = this.DOM.querySelector('.title');
 
-        titleDOM.addEventListener('click', this.expand.bind(this));
+        titleDOM.addEventListener('click', this.toggle.bind(this));
     }
 
+    /**
+     * @param {string} text 
+     * @returns {boolean} Matches search query
+     */
     search(text) {
         if (text === '') {
             return this.show();
@@ -134,8 +146,10 @@ class Item {
 
         if (inTitle || inDesc || inSynonyms || inMoreLinks) {
             this.show();
+            return true;
         } else {
             this.hide();
+            return false;
         }
     }
 }
