@@ -46,5 +46,19 @@
     {
         "name": "PENIS",
         "desc": "Practice Enough New & Interesting Skills. Esmė - gerų rezultatų pasieksi tik jei dalykas kurio mokaisi yra tau įdomus, todėl žingeidumas (naturalus noras sužinoti) yra vienas lemiamų faktorių palengvinančių mokymasį."
+    },
+    {
+        "name": "Git",
+        "desc": "Technologija, kurios dėka galima sekti projekto failų pakitimų istoriją, bei ją manipuliuoti.",
+        "more": ["https://git-scm.com/"]
+    },
+    {
+        "name": "Pull Request",
+        "desc": "Mechanizmas, leidžiantis Git repozitorijose, perkelti pakeitimus tarp skirtingų šakų (branch). Perkelimo metu galima matyti kodo pakeitimų istoriją bei atlikti kodo peržiūras (code review).",
+        "syn": ["PR"],
+        "more": [
+            "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests",
+            "https://www.atlassian.com/git/tutorials/making-a-pull-request"
+        ]
     }
 ]
