@@ -79,5 +79,19 @@
             "https://en.wikipedia.org/wiki/Recursion",
             "https://en.wikipedia.org/wiki/Recursion_(computer_science)"
         ]
+    },
+    {
+        "name": "Internet Protocol",
+        "desc": "Įrenginio internetinis adresas.",
+        "syn": ["IP", "Intellectual Property"],
+        "more": ["https://en.wikipedia.org/wiki/Internet_Protocol"]
+    },
+    {
+        "name": "Intellectual Property",
+        "desc": "Teisinė frazė - Intelektinė nuosavybė.",
+        "syn": ["IP", "Internet Protocol"],
+        "more": [
+            "https://lt.wikipedia.org/wiki/Intelektin%C4%97_nuosavyb%C4%97"
+        ]
     }
 ]
