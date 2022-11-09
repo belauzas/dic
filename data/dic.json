@@ -60,5 +60,24 @@
             "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests",
             "https://www.atlassian.com/git/tutorials/making-a-pull-request"
         ]
+    },
+    {
+        "name": "TUI",
+        "desc": "Text-based user interface / Terminal user interface. Tipiniu atveju terminale matome tekstines eilutes, o TUI bando terminale atkurti grafinių elementų vaizdą bei galimybę viską valdyti klavietūra.",
+        "more": ["https://en.wikipedia.org/wiki/Text-based_user_interface"]
+    },
+    {
+        "name": "GUI",
+        "desc": "Graphical user interface. Tai tipinis variantas, kaip didžioja dauguma žmonių naudoja kompiuterius/telefonus/kita įrangą. Bene esminis skirtumas nuo TUI - galimybė naudoti papildomas priemones, tokias kaip pelė (kursorius).",
+        "more": ["https://en.wikipedia.org/wiki/Graphical_user_interface"]
+    },
+    {
+        "name": "Rekursija",
+        "desc": "Recursion. Kodas, kuris išsikviečia save patį, tipiniu atveju, tai būtų funkcija (kuri išsikviečia save iš savo vidaus).",
+        "syn": ["Rekursija"],
+        "more": [
+            "https://en.wikipedia.org/wiki/Recursion",
+            "https://en.wikipedia.org/wiki/Recursion_(computer_science)"
+        ]
     }
 ]
