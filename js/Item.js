@@ -114,6 +114,30 @@ class Item {
     }
 
     /**
+     * @param {string} text
+     * @returns {string} Converted text
+     */
+    convertText(text) {
+        const ltu = {
+            'ą': 'a',
+            'č': 'c',
+            'ę': 'e',
+            'ė': 'e',
+            'į': 'i',
+            'š': 's',
+            'ų': 'u',
+            'ū': 'u',
+            'ž': 'z',
+        }
+        text = text.toLowerCase();
+        let newText = '';
+        for (const symbol of text) {
+            newText += ltu[symbol] ? ltu[symbol] : symbol;
+        }
+        return newText;
+    }
+
+    /**
      * @param {string} text 
      * @returns {boolean} Matches search query
      */
@@ -122,13 +146,14 @@ class Item {
             return this.show();
         }
 
-        text = text.toLowerCase();
-        const inTitle = this.data.name.toLowerCase().includes(text);
-        const inDesc = this.data.desc.toLowerCase().includes(text);
+        text = this.convertText(text);
+        const { name, desc, syn } = this.data;
+        const inTitle = this.convertText(name).includes(text);
+        const inDesc = this.convertText(desc).includes(text);
         let inSynonyms = false;
-        if (this.data.syn && this.data.syn.length > 0) {
-            for (const item of this.data.syn) {
-                if (item.toLowerCase().includes(text)) {
+        if (syn && syn.length > 0) {
+            for (const item of syn) {
+                if (this.convertText(item).includes(text)) {
                     inSynonyms = true;
                     break;
                 }
