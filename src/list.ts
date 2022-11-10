@@ -1,18 +1,24 @@
+import { HTML, Dictionary } from './index';
 import { Item } from "./Item.js";
-function dictionaryInit(dic) {
-    const dictionaryDOM = document.getElementById('dictionary');
-    const dictionary = [];
+
+function dictionaryInit(dic: Dictionary) {
+    const dictionaryDOM: HTML = document.getElementById('dictionary');
+    const dictionary: Item[] = [];
+
     if (dic.length === 0) {
         return;
     }
+
     let id = 0;
     for (const d of dic) {
         const item = new Item(d, dictionaryDOM, ++id);
         dictionary.push(item);
     }
     dictionary[0].expand();
-    const inputDOM = document.getElementById('search');
+
+    const inputDOM = document.getElementById('search')! as HTMLInputElement;
     inputDOM.focus();
+
     function updateList() {
         const text = inputDOM.value;
         let first = false;
@@ -21,8 +27,7 @@ function dictionaryInit(dic) {
             if (!first && res) {
                 item.expand();
                 first = true;
-            }
-            else {
+            } else {
                 item.collapse();
             }
         }
@@ -30,7 +35,9 @@ function dictionaryInit(dic) {
             dictionary[0].expand();
         }
     }
+
     inputDOM.addEventListener('keyup', updateList);
     inputDOM.addEventListener('search', updateList);
 }
-export { dictionaryInit };
+
+export { dictionaryInit }

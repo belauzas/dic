@@ -4,6 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
+        "ts": "tsc --watch",
         "dev": "dead-server --port=6969 --host=localhost",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
@@ -11,6 +12,8 @@
     "author": "Rimantas (https://github.com/belauzas)",
     "license": "MIT",
     "devDependencies": {
-        "dead-server": "^1.0.8"
+        "@types/node": "^18.11.9",
+        "dead-server": "^1.0.8",
+        "typescript": "^4.8.4"
     }
 }
