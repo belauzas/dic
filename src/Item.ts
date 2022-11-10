@@ -1,31 +1,38 @@
+import { DicItem, HTML, ObjStrStr } from "./index";
+
 class Item {
-    data;
-    id;
-    parentDOM;
-    DOM;
-    titleDOM;
-    constructor(data, parentDOM, id) {
+    private data: DicItem;
+    private id: number;
+    private parentDOM: HTML;
+    private DOM: HTML;
+    private titleDOM: HTML;
+
+    constructor(data: DicItem, parentDOM: HTML, id: number) {
         this.data = data;
         this.id = id;
         this.parentDOM = parentDOM;
         this.DOM = null;
         this.titleDOM = null;
+
         this.render();
     }
-    group(title, content) {
+
+    group(title: string, content: string): string {
         return `<div class="group">
                     <p class="sub-title">${title}</p>
                     <p class="sub-content">${content}</p>
                 </div>`;
     }
-    synonyms() {
+
+    synonyms(): string {
         let HTML = '';
         if (this.data.syn && this.data.syn.length > 0) {
             HTML = this.group('Sinonimai', this.data.syn.join(', '));
         }
         return HTML;
     }
-    more() {
+
+    more(): string {
         let HTML = '';
         if (this.data.more && this.data.more.length > 0) {
             for (const link of this.data.more) {
@@ -37,32 +44,38 @@ class Item {
         }
         return HTML;
     }
-    show() {
+
+    show(): void {
         if (this.DOM) {
             this.DOM.style.display = 'flex';
         }
     }
-    hide() {
+
+    hide(): void {
         if (this.DOM) {
             this.DOM.style.display = 'none';
         }
     }
-    expand() {
+
+    expand(): void {
         if (this.DOM) {
             this.DOM.classList.add('expand');
         }
     }
-    collapse() {
+
+    collapse(): void {
         if (this.DOM) {
             this.DOM.classList.remove('expand');
         }
     }
-    toggle() {
+
+    toggle(): void {
         if (this.DOM) {
             this.DOM.classList.toggle('expand');
         }
     }
-    render() {
+
+    render(): void {
         const id = `item-${this.id}`;
         const HTML = `<article id="${id}" class="">
                         <div class="top">
@@ -85,12 +98,13 @@ class Item {
             return;
         }
         this.parentDOM.insertAdjacentHTML('beforeend', HTML);
-        this.DOM = this.parentDOM.querySelector('#' + id);
-        this.titleDOM = this.DOM.querySelector('.title');
+        this.DOM = this.parentDOM.querySelector('#' + id)!;
+        this.titleDOM = this.DOM.querySelector('.title')!;
         this.titleDOM.addEventListener('click', this.toggle.bind(this));
     }
-    convertText(text) {
-        const ltu = {
+
+    convertText(text: string): string {
+        const ltu: ObjStrStr = {
             'ą': 'a',
             'č': 'c',
             'ę': 'e',
@@ -100,7 +114,7 @@ class Item {
             'ų': 'u',
             'ū': 'u',
             'ž': 'z',
-        };
+        }
         text = text.toLowerCase();
         let newText = '';
         for (const symbol of text) {
@@ -108,11 +122,13 @@ class Item {
         }
         return newText;
     }
-    search(text) {
+
+    search(text: string): boolean {
         if (text === '') {
             this.show();
             return true;
         }
+
         text = this.convertText(text);
         const { name, desc, syn } = this.data;
         const inTitle = this.convertText(name).includes(text);
@@ -135,14 +151,15 @@ class Item {
                 }
             }
         }
+
         if (inTitle || inDesc || inSynonyms || inMoreLinks) {
             this.show();
             return true;
-        }
-        else {
+        } else {
             this.hide();
             return false;
         }
     }
 }
-export { Item };
+
+export { Item }
