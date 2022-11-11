@@ -93,5 +93,15 @@
         "more": [
             "https://lt.wikipedia.org/wiki/Intelektin%C4%97_nuosavyb%C4%97"
         ]
+    },
+    {
+        "name": "IIFE",
+        "desc": "Immediately invoked function expression. Funkcija, kuri automatiškai save išsikviečia, vos tik tampa apibrėžta.",
+        "more": ["https://developer.mozilla.org/en-US/docs/Glossary/IIFE"]
+    },
+    {
+        "name": "OS",
+        "desc": "Operacinė sistema - pagrindinė programa, kuri valdo kompiuterį, telefoną ar bet kokią kitą sudėtingesnę įrangą/įrenginį. Tipiniu atveju, OS įrašoma kartu su papildomomis, vartotojui naudingomis, programomis.",
+        "more": ["https://en.wikipedia.org/wiki/Operating_system"]
     }
 ]
