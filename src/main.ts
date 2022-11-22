@@ -1,9 +1,8 @@
 import { Dictionary, HTML, JSONstring } from "./index";
 import { dictionaryInit } from './list.js';
 
-const repoURL = 'https://raw.githubusercontent.com/belauzas/dic/master/';
-const packageFile = 'package.json';
-const dataFile = 'data/dic.json';
+const packageFilePath = '../package.json';
+const dataFilePath = '../data/dic.json';
 
 let localDataVersion = '0.0.0';
 let originDataVersion = '0.0.0';
@@ -45,7 +44,7 @@ function terminateClock(msg: string, err = true) {
 }
 
 // GET CURRENT VERSION
-await fetch(repoURL + packageFile)
+await fetch(packageFilePath)
     .then(data => data.json())
     .then(data => {
         originDataVersion = data.version;
@@ -57,7 +56,7 @@ await fetch(repoURL + packageFile)
 
 // UPDATE DATA AND VERSION
 if (localDataVersion !== originDataVersion) {
-    await fetch(repoURL + dataFile)
+    await fetch(dataFilePath)
         .then(data => data.json())
         .then(data => {
             localStorage.setItem(localVersionKey, originDataVersion);
