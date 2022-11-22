@@ -1,6 +1,7 @@
 [
     {
         "name": "CSS",
+        "syn": ["Cascading Style Sheets"],
         "desc": "Kalba kurios dėka sukuriamas (tipiniu atveju) tinklapių stilius.",
         "more": [
             "https://www.w3schools.com/css/",
@@ -9,6 +10,7 @@
     },
     {
         "name": "HTML",
+        "syn": ["HyperText Markup Language"],
         "desc": "Kalba kurios dėka sukuriamas (tipiniu atveju) tinklapių turinys.",
         "more": [
             "https://www.w3schools.com/html/",
@@ -17,8 +19,8 @@
     },
     {
         "name": "JavaScript",
-        "desc": "Kalba kurios dėka sukuriamas (tipiniu atveju) tinklapių turinio interaktyvus, atliekami duomenų mainai su serveriu.",
         "syn": ["JS"],
+        "desc": "Kalba kurios dėka sukuriamas (tipiniu atveju) tinklapių turinio interaktyvus, atliekami duomenų mainai su serveriu.",
         "more": [
             "https://www.w3schools.com/js/",
             "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
@@ -31,7 +33,8 @@
     },
     {
         "name": "TLD",
-        "desc": "Top-level domain. Pagrindinė URL dalis.",
+        "syn": ["Top-level domain"],
+        "desc": "Pagrindinė URL dalis.",
         "more": ["https://en.wikipedia.org/wiki/Top-level_domain"]
     },
     {
@@ -41,11 +44,13 @@
     },
     {
         "name": "TITS",
-        "desc": "Time In The Saddle. Esmė - gerų rezultatų galima tikėtis tik daug mokantis ir tobulėjant savo amate."
+        "syn": ["Time In The Saddle"],
+        "desc": "Esmė - gerų rezultatų galima tikėtis tik daug mokantis ir tobulėjant savo amate."
     },
     {
         "name": "PENIS",
-        "desc": "Practice Enough New & Interesting Skills. Esmė - gerų rezultatų pasieksi tik jei dalykas kurio mokaisi yra tau įdomus, todėl žingeidumas (naturalus noras sužinoti) yra vienas lemiamų faktorių palengvinančių mokymasį."
+        "syn": ["Practice Enough New & Interesting Skills"],
+        "desc": "Esmė - gerų rezultatų pasieksi tik jei dalykas kurio mokaisi yra tau įdomus, todėl žingeidumas (naturalus noras sužinoti) yra vienas lemiamų faktorių palengvinančių mokymasį."
     },
     {
         "name": "Git",
@@ -63,50 +68,223 @@
     },
     {
         "name": "TUI",
-        "desc": "Text-based user interface / Terminal user interface. Tipiniu atveju terminale matome tekstines eilutes, o TUI bando terminale atkurti grafinių elementų vaizdą bei galimybę viską valdyti klavietūra.",
+        "syn": ["Text-based user interface", "Terminal user interface"],
+        "desc": "Tipiniu atveju terminale matome tekstines eilutes, o TUI bando terminale atkurti grafinių elementų vaizdą bei galimybę viską valdyti klavietūra.",
         "more": ["https://en.wikipedia.org/wiki/Text-based_user_interface"]
     },
     {
         "name": "GUI",
-        "desc": "Graphical user interface. Tai tipinis variantas, kaip didžioja dauguma žmonių naudoja kompiuterius/telefonus/kita įrangą. Bene esminis skirtumas nuo TUI - galimybė naudoti papildomas priemones, tokias kaip pelė (kursorius).",
+        "syn": ["Graphical user interface"],
+        "desc": "Tai tipinis variantas, kaip didžioja dauguma žmonių naudoja kompiuterius/telefonus/kita įrangą. Bene esminis skirtumas nuo TUI - galimybė naudoti papildomas priemones, tokias kaip pelė (kursorius).",
         "more": ["https://en.wikipedia.org/wiki/Graphical_user_interface"]
     },
     {
         "name": "Rekursija",
-        "desc": "Recursion. Kodas, kuris išsikviečia save patį, tipiniu atveju, tai būtų funkcija (kuri išsikviečia save iš savo vidaus).",
-        "syn": ["Rekursija"],
+        "syn": ["Recursion"],
+        "desc": "Kodas, kuris išsikviečia save patį, tipiniu atveju, tai būtų funkcija (kuri išsikviečia save iš savo vidaus).",
         "more": [
             "https://en.wikipedia.org/wiki/Recursion",
             "https://en.wikipedia.org/wiki/Recursion_(computer_science)"
         ]
     },
     {
-        "name": "Internet Protocol",
-        "desc": "Įrenginio internetinis adresas.",
-        "syn": ["IP", "Intellectual Property"],
+        "name": "IP address",
+        "syn": ["Internet Protocol", "IP", "IP adresas"],
+        "desc": "Įrenginio internetinis adresas. Parametras, kurio dėka įrenginiai gali internetu keistis informaciją.",
         "more": ["https://en.wikipedia.org/wiki/Internet_Protocol"]
     },
     {
         "name": "Intellectual Property",
+        "syn": ["IP", "Intellectual Property"],
         "desc": "Teisinė frazė - Intelektinė nuosavybė.",
-        "syn": ["IP", "Internet Protocol"],
         "more": [
             "https://lt.wikipedia.org/wiki/Intelektin%C4%97_nuosavyb%C4%97"
         ]
     },
     {
         "name": "IIFE",
-        "desc": "Immediately invoked function expression. Funkcija, kuri automatiškai save išsikviečia, vos tik tampa apibrėžta.",
+        "syn": ["Immediately invoked function expression"],
+        "desc": "Funkcija, kuri automatiškai save išsikviečia, vos tik tampa apibrėžta.",
         "more": ["https://developer.mozilla.org/en-US/docs/Glossary/IIFE"]
     },
     {
         "name": "OS",
-        "desc": "Operacinė sistema - pagrindinė programa, kuri valdo kompiuterį, telefoną ar bet kokią kitą sudėtingesnę įrangą/įrenginį. Tipiniu atveju, OS įrašoma kartu su papildomomis, vartotojui naudingomis, programomis.",
+        "syn": ["Operating system", "Operacinė sistema"],
+        "desc": "Pagrindinė programa, kuri valdo kompiuterį, telefoną ar bet kokią kitą sudėtingesnę įrangą/įrenginį. Tipiniu atveju, OS įrašoma kartu su papildomomis, vartotojui naudingomis, programomis.",
         "more": ["https://en.wikipedia.org/wiki/Operating_system"]
     },
     {
         "name": "CTA",
-        "desc": "Call-To-Action. Elementas, tipiniu atveju, tai mygtukas, kurio paskirtis paskatinti vartotoją atliktį lemiamą žingsnį, pvz.: peržiūrėti pasiūlymą, pradėti registraciją, pradėti apmokėjimą ir pan.",
+        "syn": ["Call-To-Action"],
+        "desc": "Elementas, tipiniu atveju, tai mygtukas, kurio paskirtis paskatinti vartotoją atliktį lemiamą žingsnį, pvz.: peržiūrėti pasiūlymą, pradėti registraciją, pradėti apmokėjimą ir pan.",
         "more": ["https://en.wikipedia.org/wiki/Call_to_action_(marketing)"]
+    },
+    {
+        "name": "SSR",
+        "syn": ["Server-Side Rendering"],
+        "desc": "Strategija, kaip generuojamas tinklapio turinys. Šiuo atveju, pirminis turinys yra generuojamas serverio pusėje, tačiau esant poreikiui ir toliau galima papildomą turinį generuoti Kliento pusėje (pvz.: naršyklėje).",
+        "more": [""]
+    },
+    {
+        "name": "SSG",
+        "syn": ["Static Site Generation"],
+        "desc": "",
+        "more": [""]
+    },
+    {
+        "name": "CSR",
+        "syn": [""],
+        "desc": "",
+        "more": [""]
+    },
+    {
+        "name": "ISR",
+        "syn": [""],
+        "desc": "",
+        "more": [""]
+    },
+    {
+        "name": "ESR",
+        "syn": [""],
+        "desc": "",
+        "more": [""]
+    },
+    {
+        "name": "SWR",
+        "syn": [""],
+        "desc": "",
+        "more": [""]
+    },
+    {
+        "name": "SPA",
+        "syn": ["Single Page Application"],
+        "desc": "Tinklapis, kurio visas turinys yra generuojamas Kliento pusėje, pvz.: naršyklėje. Su pirma užklausa naršyklė gauna praktiškai tuščia HTML ir visą JS logiką, kuri ir perima tolimesnį darbą: informacijos atsisiuntimą/sinchronizavimą, turinio generavimą, navigavimo (nuorodos pasikeitimo) imitavimą ir t.t.",
+        "more": [""]
+    },
+    {
+        "name": "LIFO",
+        "syn": ["Last In First Out"],
+        "desc": "",
+        "more": [""]
+    },
+    {
+        "name": "FIFO",
+        "syn": ["First In First Out"],
+        "desc": "",
+        "more": [""]
+    },
+    {
+        "name": "Third-Party",
+        "syn": ["3rd-party"],
+        "desc": "",
+        "more": [""]
+    },
+    {
+        "name": "BST",
+        "syn": ["Binary Search Tree"],
+        "desc": "",
+        "more": [""]
+    },
+    {
+        "name": "DB",
+        "syn": ["Database", "Duomenų bazė"],
+        "desc": "Programa, kurioje yra saugoma informacija.",
+        "more": [""]
+    },
+    {
+        "name": "NPM",
+        "syn": [""],
+        "desc": "",
+        "more": [""]
+    },
+    {
+        "name": "RX",
+        "syn": ["Reactive programming"],
+        "desc": "",
+        "more": [""]
+    },
+    {
+        "name": "DI",
+        "syn": ["Dependency injection"],
+        "desc": "",
+        "more": [""]
+    },
+    {
+        "name": "OOP",
+        "syn": [""],
+        "desc": "",
+        "more": [""]
+    },
+    {
+        "name": "SQL",
+        "syn": [""],
+        "desc": "",
+        "more": [""]
+    },
+    {
+        "name": "CI/CD",
+        "syn": [""],
+        "desc": "",
+        "more": [""]
+    },
+    {
+        "name": "DevOps",
+        "syn": [""],
+        "desc": "",
+        "more": [""]
+    },
+    {
+        "name": "Docker",
+        "syn": [""],
+        "desc": "",
+        "more": [""]
+    },
+    {
+        "name": "2FA",
+        "syn": [""],
+        "desc": "",
+        "more": [""]
+    },
+    {
+        "name": "E2E",
+        "syn": [""],
+        "desc": "",
+        "more": [""]
+    },
+    {
+        "name": "API",
+        "syn": [""],
+        "desc": "",
+        "more": [""]
+    },
+    {
+        "name": "REST API",
+        "syn": ["RESTful API"],
+        "desc": "",
+        "more": [""]
+    },
+    {
+        "name": "CRUD",
+        "syn": [""],
+        "desc": "",
+        "more": [""]
+    },
+    {
+        "name": "DRY",
+        "syn": ["Don't repeat yourself"],
+        "desc": "",
+        "more": [""]
+    },
+    {
+        "name": "Solid",
+        "syn": [""],
+        "desc": "",
+        "more": [""]
+    },
+    {
+        "name": "SRP",
+        "syn": [""],
+        "desc": "",
+        "more": [""]
     }
 ]

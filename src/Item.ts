@@ -36,6 +36,10 @@ class Item {
         let HTML = '';
         if (this.data.more && this.data.more.length > 0) {
             for (const link of this.data.more) {
+                if (typeof link !== 'string' || link === '') {
+                    continue;
+                }
+
                 const url = new URL(link);
                 const domain = url.hostname.split('www.').at(-1);
                 HTML += `<a href="${url.href}" target="_blank">${domain}</a>`;
