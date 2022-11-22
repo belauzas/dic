@@ -123,13 +123,19 @@
         "name": "SSR",
         "syn": ["Server-Side Rendering"],
         "desc": "Strategija, kaip generuojamas tinklapio turinys. Šiuo atveju, pirminis turinys yra generuojamas serverio pusėje, tačiau esant poreikiui ir toliau galima papildomą turinį generuoti Kliento pusėje (pvz.: naršyklėje).",
-        "more": [""]
+        "more": [
+            "https://vuejs.org/guide/scaling-up/ssr.html",
+            "https://www.heavy.ai/technical-glossary/server-side-rendering"
+        ]
     },
     {
         "name": "SSG",
         "syn": ["Static Site Generation"],
-        "desc": "",
-        "more": [""]
+        "desc": "Strategija, kurios tikslas iš serverio ir duomenų bazės pusėje esančios dinaminės informacijos sukurti statinį (galutinį) rezultatą, kurį galima perpanaudoti, kai gaunamos tokios pačios užklausos. Tai reiškia, jog kol duomenys nesikeičia, vieną kartą sugeneruotas turinys (rezultatas) yra naudojamas pakartotinai ir tai užtrunka žymiai mažiau laiko, bei reikalauja mažiau resursų.",
+        "more": [
+            "https://www.cloudflare.com/learning/performance/static-site-generator/",
+            "https://www.gatsbyjs.com/docs/glossary/static-site-generator/"
+        ]
     },
     {
         "name": "CSR",
