@@ -147,22 +147,13 @@
         ]
     },
     {
-        "name": "ESR",
-        "syn": [""],
-        "desc": "",
-        "more": [""]
-    },
-    {
-        "name": "SWR",
-        "syn": [""],
-        "desc": "",
-        "more": [""]
-    },
-    {
         "name": "SPA",
         "syn": ["Single Page Application"],
         "desc": "Tinklapis, kurio visas turinys yra generuojamas Kliento pusėje, pvz.: naršyklėje. Su pirma užklausa naršyklė gauna praktiškai tuščia HTML ir visą JS logiką, kuri ir perima tolimesnį darbą: informacijos atsisiuntimą/sinchronizavimą, turinio generavimą, navigavimo (nuorodos pasikeitimo) imitavimą ir t.t.",
-        "more": [""]
+        "more": [
+            "https://developer.mozilla.org/en-US/docs/Glossary/SPA",
+            "https://medium.com/@NeotericEU/single-page-application-vs-multiple-page-application-2591588efe58"
+        ]
     },
     {
         "name": "LIFO",
@@ -196,7 +187,7 @@
     },
     {
         "name": "NPM",
-        "syn": [""],
+        "syn": ["Node package manager"],
         "desc": "",
         "more": [""]
     },
@@ -214,9 +205,12 @@
     },
     {
         "name": "OOP",
-        "syn": [""],
-        "desc": "",
-        "more": [""]
+        "syn": ["Object-oriented programming"],
+        "desc": "Kodo rašymo variantas, kurio esmę sudaro objektai, kurie savyje turi susijusius parametrus ir susijusius metodus (funkcijas), skirtus tiems parametrams manipuliuoti.",
+        "more": [
+            "https://en.wikipedia.org/wiki/Object-oriented_programming",
+            "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_programming"
+        ]
     },
     {
         "name": "SQL",
