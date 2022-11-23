@@ -138,16 +138,13 @@
         ]
     },
     {
-        "name": "CSR",
-        "syn": [""],
-        "desc": "",
-        "more": [""]
-    },
-    {
         "name": "ISR",
-        "syn": [""],
-        "desc": "",
-        "more": [""]
+        "syn": ["Incremental Static Regeneration"],
+        "desc": "Turint tinklapį su statiškai generuojamu turiniu (SSG) ir norint atnaujinti tik nedidelę dalį turinio, nereikia pergeruoti viso turinio, o užtenka tik tos pakitusios dalies pergeneravimo.",
+        "more": [
+            "https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration",
+            "https://www.smashingmagazine.com/2021/04/incremental-static-regeneration-nextjs/"
+        ]
     },
     {
         "name": "ESR",
@@ -290,6 +287,12 @@
     {
         "name": "SRP",
         "syn": [""],
+        "desc": "",
+        "more": [""]
+    },
+    {
+        "name": "URL",
+        "syn": ["Uniform Resource Locator"],
         "desc": "",
         "more": [""]
     }
