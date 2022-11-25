@@ -157,20 +157,26 @@
     },
     {
         "name": "LIFO",
-        "syn": ["Last In First Out"],
-        "desc": "",
+        "syn": ["Last In First Out", "Queue"],
+        "desc": "Algoritmas, kai atėjusios užklausos yra atliekamos chronologišku eiliškumu. Šis algoritmas naudingas, kai ateinančių užklausų kiekis laike yra nereguliarus ir gali labai apkrauti sistemą. Tad galiausiai visas užklausas galima atlikti pastoviu tempu chronologine tvarka ir galiausiai vis vien būti viską padarius. Jei galimas rezultato vėlavimas nėra priimtinas rezultatas, reikėtų svarstyti paraleliškumo variantą ir plėsti sistemą.",
         "more": [""]
     },
     {
         "name": "FIFO",
-        "syn": ["First In First Out"],
-        "desc": "",
-        "more": [""]
+        "syn": ["First In First Out", "Stack"],
+        "desc": "Algoritmas, kai atėjusios užklausos yra atliekamos nuo naujausios link seniausios. Bene vienintelė nauda, kai norima žinoti šviežiausią informaciją.",
+        "more": ["https://en.wikipedia.org/wiki/Stack_(abstract_data_type)"]
     },
     {
         "name": "Third-Party",
-        "syn": ["3rd-party"],
-        "desc": "",
+        "syn": ["3rd-party", "vendor"],
+        "desc": "Bendrinio pobūdžio išsireiškimas, kai norima apibūdinti visus kitus asmenis/kompanijas, kurių produktas yra daromo projekto dalis, bet jie patys einamojo projekto nevysto.",
+        "more": [""]
+    },
+    {
+        "name": "Vendor",
+        "syn": ["Third-Party", "3rd-party"],
+        "desc": "Paslaugų tiekėjas ir/arba produkto gamintojas, kurio paslauga ar produktas yra naudojamas projekte.",
         "more": [""]
     },
     {
@@ -287,6 +293,12 @@
     {
         "name": "URL",
         "syn": ["Uniform Resource Locator"],
+        "desc": "",
+        "more": [""]
+    },
+    {
+        "name": "REPL",
+        "syn": ["Read-Eval-Print-Loop"],
         "desc": "",
         "more": [""]
     }
