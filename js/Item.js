@@ -118,12 +118,6 @@ class Item {
         }
         return newText;
     }
-    /**
-     * Paieska antrasteje
-     * @param title Kur ieskoti
-     * @param text Ko ieskoti
-     * @returns Ar rado?
-     */
     searchTitle(title, text) {
         return this.convertText(title).includes(text);
     }
@@ -160,11 +154,10 @@ class Item {
             return true;
         }
         text = this.convertText(text);
-        const { name, desc, syn, more } = this.data;
-        const inTitle = this.searchTitle(name, text);
-        const inDesc = this.searchDescription(desc, text);
-        const inSynonyms = this.searchSynonyms(syn, text);
-        const inMoreLinks = this.searchMoreLinks(more, text);
+        const inTitle = this.searchTitle(this.data.name, text);
+        const inDesc = this.searchDescription(this.data.desc, text);
+        const inSynonyms = this.searchSynonyms(this.data.syn, text);
+        const inMoreLinks = this.searchMoreLinks(this.data.more, text);
         if (inTitle || inDesc || inSynonyms || inMoreLinks) {
             this.show();
             return true;
