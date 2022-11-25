@@ -13,6 +13,9 @@ class Item {
         this.render();
     }
     group(title, content) {
+        if (title === '' || content === '') {
+            return '';
+        }
         return `<div class="group">
                     <p class="sub-title">${title}</p>
                     <p class="sub-content">${content}</p>
@@ -35,6 +38,9 @@ class Item {
                 const url = new URL(link);
                 const domain = url.hostname.split('www.').at(-1);
                 HTML += `<a href="${url.href}" target="_blank">${domain}</a>`;
+            }
+            if (HTML === '') {
+                return HTML;
             }
             HTML = this.group('Tolimesniam skaitymui', HTML);
         }
@@ -67,6 +73,9 @@ class Item {
     }
     render() {
         const id = `item-${this.id}`;
+        const bookmarkHTML = `<div class="actions">
+                                <span>Bookmark</span>
+                            </div>`;
         const HTML = `<article id="${id}" class="">
                         <div class="top">
                             <div class="title">
@@ -74,9 +83,7 @@ class Item {
                                 <span class="collapse">-</span>
                                 <p class="">${this.data.name}</p>
                             </div>
-                            <div class="actions">
-                                <span>Bookmark</span>
-                            </div>
+                            ${false ? bookmarkHTML : ''}
                         </div>
                         <div class="details">
                             ${this.synonyms()}
@@ -111,33 +118,53 @@ class Item {
         }
         return newText;
     }
+    /**
+     * Paieska antrasteje
+     * @param title Kur ieskoti
+     * @param text Ko ieskoti
+     * @returns Ar rado?
+     */
+    searchTitle(title, text) {
+        return this.convertText(title).includes(text);
+    }
+    searchDescription(title, text) {
+        return this.convertText(title).includes(text);
+    }
+    searchSynonyms(list, text) {
+        let found = false;
+        if (list && list.length > 0) {
+            for (const item of list) {
+                if (this.convertText(item).includes(text)) {
+                    found = true;
+                    break;
+                }
+            }
+        }
+        return found;
+    }
+    searchMoreLinks(list, text) {
+        let found = false;
+        if (list && list.length > 0) {
+            for (const item of list) {
+                if (item.toLowerCase().includes(text)) {
+                    found = true;
+                    break;
+                }
+            }
+        }
+        return found;
+    }
     search(text) {
         if (text === '') {
             this.show();
             return true;
         }
         text = this.convertText(text);
-        const { name, desc, syn } = this.data;
-        const inTitle = this.convertText(name).includes(text);
-        const inDesc = this.convertText(desc).includes(text);
-        let inSynonyms = false;
-        if (syn && syn.length > 0) {
-            for (const item of syn) {
-                if (this.convertText(item).includes(text)) {
-                    inSynonyms = true;
-                    break;
-                }
-            }
-        }
-        let inMoreLinks = false;
-        if (this.data.more && this.data.more.length > 0) {
-            for (const item of this.data.more) {
-                if (item.toLowerCase().includes(text)) {
-                    inMoreLinks = true;
-                    break;
-                }
-            }
-        }
+        const { name, desc, syn, more } = this.data;
+        const inTitle = this.searchTitle(name, text);
+        const inDesc = this.searchDescription(desc, text);
+        const inSynonyms = this.searchSynonyms(syn, text);
+        const inMoreLinks = this.searchMoreLinks(more, text);
         if (inTitle || inDesc || inSynonyms || inMoreLinks) {
             this.show();
             return true;
