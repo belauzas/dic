@@ -1,76 +1,121 @@
 import { dictionaryInit } from './list.js';
-const packageFilePath = '../package.json';
-const dataFilePath = '../data/dic.json';
-let localDataVersion = '0.0.0';
-let originDataVersion = '0.0.0';
-const localVersionKey = 'dic-version';
-const localDataKey = 'dic-content';
-const localVersion = localStorage.getItem(localVersionKey);
-if (localVersion) {
-    localDataVersion = localVersion;
-}
+import { localData } from "./localData.js";
+import { fetchVersion, fetchContent } from "./fetchData.js";
+var local;
+(function (local) {
+    local["lastUpdate"] = "dic-last-update";
+    local["version"] = "dic-version";
+    local["content"] = "dic-content";
+})(local || (local = {}));
+var message;
+(function (message) {
+    message["failed"] = "negal\u0117jo b\u016Bti atnaujinta";
+    message["success"] = "atnaujinta s\u0117kmingai";
+    message["upToDate"] = "yra naujausia";
+})(message || (message = {}));
 const versionDOM = document.querySelector('.version-title');
-const updatingText = `Version ${localDataVersion}: updating`;
-let updateTick = 0;
-let updateDots = '';
-const updatingClock = setInterval(() => {
-    if (updateTick++ < 3) {
-        updateDots += '.';
+let updateClock = 0;
+let currentVersion = '0.0.0';
+let currentContent = [];
+let nextVersion = '0.0.0';
+let nextContent = [];
+let lastRefreshTime = 0;
+function updateStart() {
+    let updateTick = 0;
+    let updateDots = '';
+    updateClock = setInterval(() => {
+        if (updateTick++ < 3) {
+            updateDots += '.';
+        }
+        else {
+            updateDots = '';
+            updateTick = 0;
+        }
+        const updatingText = `Versija ${currentVersion}: atnaujinama`;
+        versionDOM.textContent = updatingText + updateDots;
+    }, 200);
+}
+function updateCompleted(msg) {
+    clearInterval(updateClock);
+    versionDOM.textContent = `Versija ${currentVersion} ${msg}.`;
+}
+async function updateAll() {
+    updateStart();
+    // Randam turima versija
+    const [localVersionErr, localVersionValue] = localData.getJSON(local.version);
+    currentVersion = localVersionValue;
+    // Randam turimus duomenis
+    const [localContentErr, localContentValue] = localData.getJSON(local.content);
+    currentContent = localContentValue;
+    if (localVersionErr || localContentErr) {
+        try {
+            // atsisiunciame versija
+            const [originVersionErr, originVersionValue] = await fetchVersion();
+            if (originVersionErr) {
+                updateCompleted(message.failed);
+                return false;
+            }
+            currentVersion = originVersionValue;
+            // atsisiunciame duomenis
+            const [originContentErr, originContentValue] = await fetchContent();
+            if (originContentErr) {
+                updateCompleted(message.failed);
+                return false;
+            }
+            // issaugom versija
+            localData.setJSON(local.version, originVersionValue);
+            // issaugom turini
+            localData.setJSON(local.content, originContentValue);
+            // sugeneruojame DOM
+            dictionaryInit(originContentValue);
+            updateCompleted(message.success);
+        }
+        catch (error) {
+            updateCompleted(message.failed);
+        }
     }
     else {
-        updateDots = '';
-        updateTick = 0;
+        // atsisiunciame versija
+        const [originVersionErr, originVersionValue] = await fetchVersion();
+        if (originVersionErr) {
+            updateCompleted(message.failed);
+            return false;
+        }
+        nextVersion = originVersionValue;
+        if (nextVersion !== currentVersion) {
+            // atnaujinime (sukeiciame) versija
+            localData.setJSON(local.version, nextVersion);
+            currentVersion = nextVersion;
+            // atnaujinime duomenis
+            const [originContentErr, originContentValue] = await fetchContent();
+            if (originContentErr) {
+                updateCompleted(message.failed);
+                return false;
+            }
+            nextContent = originContentValue;
+            // atnaujinime (sukeiciame) duomenis
+            localData.setJSON(local.content, nextContent);
+            currentContent = nextContent;
+        }
+        // sugeneruojame DOM
+        dictionaryInit(currentContent);
+        updateCompleted(message.upToDate);
+        // tikriname update
+        // if (yra atnaujinimas) {
+        //     atsisiunciame versija
+        //     atsisiunciame duomenis
+        //     pasiulom atsinaujinti
+        //     if (sutinka atsinaujinti) {
+        //         perkraunam puslapi
+        //     }
+        // }
     }
-    if (versionDOM) {
-        versionDOM.textContent = updatingText + updateDots;
-    }
-}, 200);
-/**
- *
- * @param {'string'} msg
- * @param {boolean} err
- */
-function terminateClock(msg, err = true) {
-    clearInterval(updatingClock);
-    if (versionDOM) {
-        versionDOM.textContent = `Versija ${originDataVersion} ${msg}.`;
-    }
+    // const [localLastUpdateErr, localLastUpdateValue] = localData.getJSON(local.lastUpdate);
+    // if (localLastUpdateErr) {
+    // lastRefreshTime = +(new Date());
+    // console.log(lastRefreshTime);
+    // }
+    return true;
 }
-// GET CURRENT VERSION
-await fetch(packageFilePath)
-    .then(data => data.json())
-    .then(data => {
-    originDataVersion = data.version;
-})
-    .catch((e) => {
-    console.log(e);
-    terminateClock('negalėjo būti atnaujinta', true);
-});
-// UPDATE DATA AND VERSION
-if (localDataVersion !== originDataVersion) {
-    await fetch(dataFilePath)
-        .then(data => data.json())
-        .then(data => {
-        localStorage.setItem(localVersionKey, originDataVersion);
-        localStorage.setItem(localDataKey, JSON.stringify(data));
-        terminateClock('atnaujinta sėkmingai');
-    })
-        .catch((e) => {
-        console.log(e);
-        terminateClock('negalėjo būti atnaujinta', true);
-    });
-}
-else {
-    terminateClock('yra naujausia');
-}
-// APP INIT
-const localDataJSON = localStorage.getItem(localDataKey);
-if (localDataJSON) {
-    try {
-        const localData = JSON.parse(localDataJSON);
-        dictionaryInit(localData);
-    }
-    catch (error) {
-        console.log(error);
-    }
-}
+updateAll();
+//# sourceMappingURL=main.js.map

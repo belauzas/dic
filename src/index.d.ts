@@ -1,5 +1,3 @@
-export type HTML = HTMLElement | null;
-
 export type JSONstring = string | null;
 
 export type ObjStrStr = { [key: string]: string };

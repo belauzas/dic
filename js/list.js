@@ -34,3 +34,4 @@ function dictionaryInit(dic) {
     inputDOM.addEventListener('search', updateList);
 }
 export { dictionaryInit };
+//# sourceMappingURL=list.js.map

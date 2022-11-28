@@ -1,13 +1,13 @@
-import { DicItem, HTML, ObjStrStr } from "./index";
+import { DicItem, ObjStrStr } from "./index";
 
 class Item {
     private data: DicItem;
     private id: number;
-    private parentDOM: HTML;
-    private DOM: HTML;
-    private titleDOM: HTML;
+    private parentDOM: HTMLElement;
+    private DOM: HTMLElement | null;
+    private titleDOM: HTMLElement | null;
 
-    constructor(data: DicItem, parentDOM: HTML, id: number) {
+    constructor(data: DicItem, parentDOM: HTMLElement, id: number) {
         this.data = data;
         this.id = id;
         this.parentDOM = parentDOM;

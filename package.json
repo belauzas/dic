@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "ts": "tsc --watch",
-        "dev": "dead-server --port=6969 --host=localhost",
+        "dev": "dead-server --port=6969 --host=localhost --wait=500",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [],

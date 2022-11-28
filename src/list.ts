@@ -1,8 +1,8 @@
-import { HTML, Dictionary } from './index';
+import { Dictionary } from './index';
 import { Item } from "./Item.js";
 
 function dictionaryInit(dic: Dictionary) {
-    const dictionaryDOM: HTML = document.getElementById('dictionary');
+    const dictionaryDOM = document.getElementById('dictionary')!;
     const dictionary: Item[] = [];
 
     if (dic.length === 0) {
